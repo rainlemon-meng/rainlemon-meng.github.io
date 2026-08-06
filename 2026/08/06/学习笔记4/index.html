@@ -4,25 +4,19 @@
   <meta charset="utf-8">
   
   
-  <title>简单的XSS寻找flag | Hexo</title>
+  <title>学习笔记4 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="题目要求击杀 1000 只丧尸拿 flag，手动打几乎不可能。这是前端网页游戏，分数逻辑写在前端 JS 代码里，属于前端篡改 &#x2F; XSS 相关思路，不需要真的射击。寻找flag的方法：1.先打开控制台，再访问游戏页面（最有效）2.新建一个空白浏览器标签3.按下 Ctrl+Shift+I 先把开发者工具调出来4.在这个标签地址栏粘贴游戏链接访问   页面里有一个文件 challenge.j">
+  <meta name="description" content="一、基础网页骨架：DOCTYPE html 声明文档类型html lang&#x3D;”zh‑CN”html：lang&#x3D;”zh‑CN” 代表网页语言是中文  &lt;head：网页头部，存放页面配置，内容不会显示在页面上  &lt;meta charset&#x3D;&quot;UTF‑8&quot;&gt; &lt;!-- meta字符集：设置编码，防止中文乱码，必须写 --&gt; &lt;t">
 <meta property="og:type" content="article">
-<meta property="og:title" content="简单的XSS寻找flag">
-<meta property="og:url" content="http://example.com/2026/07/31/%E7%AE%80%E5%8D%95%E7%9A%84XSS%E5%AF%BB%E6%89%BEflag/index.html">
+<meta property="og:title" content="学习笔记4">
+<meta property="og:url" content="http://example.com/2026/08/06/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="题目要求击杀 1000 只丧尸拿 flag，手动打几乎不可能。这是前端网页游戏，分数逻辑写在前端 JS 代码里，属于前端篡改 &#x2F; XSS 相关思路，不需要真的射击。寻找flag的方法：1.先打开控制台，再访问游戏页面（最有效）2.新建一个空白浏览器标签3.按下 Ctrl+Shift+I 先把开发者工具调出来4.在这个标签地址栏粘贴游戏链接访问   页面里有一个文件 challenge.j">
+<meta property="og:description" content="一、基础网页骨架：DOCTYPE html 声明文档类型html lang&#x3D;”zh‑CN”html：lang&#x3D;”zh‑CN” 代表网页语言是中文  &lt;head：网页头部，存放页面配置，内容不会显示在页面上  &lt;meta charset&#x3D;&quot;UTF‑8&quot;&gt; &lt;!-- meta字符集：设置编码，防止中文乱码，必须写 --&gt; &lt;t">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/image-3.png">
-<meta property="og:image" content="http://example.com/image-4.png">
-<meta property="og:image" content="http://example.com/image-5.png">
-<meta property="og:image" content="http://example.com/image-6.png">
-<meta property="article:published_time" content="2026-07-31T03:14:02.000Z">
-<meta property="article:modified_time" content="2026-07-28T06:06:50.495Z">
+<meta property="article:published_time" content="2026-08-06T09:06:43.000Z">
+<meta property="article:modified_time" content="2026-08-06T09:34:30.646Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="学习，寻找flag入门">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/image-3.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -79,10 +73,10 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-简单的XSS寻找flag" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-学习笔记4" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/07/31/%E7%AE%80%E5%8D%95%E7%9A%84XSS%E5%AF%BB%E6%89%BEflag/" class="article-date">
-  <time class="dt-published" datetime="2026-07-31T03:14:02.000Z" itemprop="datePublished">2026-07-31</time>
+    <a href="/2026/08/06/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/" class="article-date">
+  <time class="dt-published" datetime="2026-08-06T09:06:43.000Z" itemprop="datePublished">2026-08-06</time>
 </a>
     
   </div>
@@ -93,7 +87,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      简单的XSS寻找flag
+      学习笔记4
     </h1>
   
 
@@ -101,37 +95,38 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p><img src="/image-3.png" alt="alt text"><br><img src="/image-4.png" alt="alt text"><br>题目要求击杀 1000 只丧尸拿 flag，手动打几乎不可能。<br>这是前端网页游戏，分数逻辑写在前端 JS 代码里，属于前端篡改 &#x2F; XSS 相关思路，不需要真的射击。<br>寻找flag的方法：<br>1.先打开控制台，再访问游戏页面（最有效）<br>2.新建一个空白浏览器标签<br>3.按下 Ctrl+Shift+I 先把开发者工具调出来<br>4.在这个标签地址栏粘贴游戏链接访问<br><img src="/image-5.png" alt="alt text"><br>   页面里有一个文件 challenge.js，可以打开搜索 flag，部分题目 flag 直接写在这个文件内。<br>   <img src="/image-6.png" alt="alt text"><br>     含义：你可以在开发者工具控制台调用函数 getFlag(1000)</p>
-<p>右侧开发者工具切换到 控制台（Console）<br>直接输入下面代码，回车执行：<br>javascript<br>运行<br>getFlag(1000)<br>执行之后页面就会弹出 Flag。</p>
+        <p>一、基础网页骨架：<br>DOCTYPE html<br> 声明文档类型<br>html lang&#x3D;”zh‑CN”<br>html：lang&#x3D;”zh‑CN” 代表网页语言是中文 </p>
+<pre><code>&lt;head：网页头部，存放页面配置，内容不会显示在页面上 
+&lt;meta charset=&quot;UTF‑8&quot;&gt;
+&lt;!-- meta字符集：设置编码，防止中文乱码，必须写 --&gt;
+&lt;title&gt;我的第一个网页&lt;/title&gt;
+&lt;!-- title：浏览器标签页上面显示的标题 --&gt;
+</code></pre>
+<p>head<br>body<br>    body：网页主体，所有看得见的内容全部写在这里！！<br>    这里写页面内容</p>
+<p>二、常用标签分类：<br> 标题标签 h1 ~ h6<br>h1 最大，h6 最小，有语义，代表标题<br>三、网页里面要用字符，不能直接打空格：<br>空格：	nbsp;<br>小于： 	lt;<br>大于：	gt;</p>
+<p>各类元素：</p>
+<p>1、块级元素 block<br>特点：独占一行，可以设置宽高<br>代表：div h1~h6 p ul ol li header main footer</p>
+<p>2、行内元素 inline<br>特点：一行多个并排，不能设置宽高，大小跟随内容<br>代表：span a b em strong</p>
+<p>3、行内块 inline‑block<br>特点：一行多个并排，可以设置宽高<br>代表：img input textarea</p>
+<p>❌HTML 常见坑<br>忘记写 &lt;&#x2F;&gt;闭合标签，页面布局乱掉。<br>img 的 src 路径写错，图片不显示。<br>表单 input 不写 name，提交拿不到数据。<br>单选框 radio 的 name 不相同，结果可以同时多选。<br>中文页面忘记写<meta charset="UTF‑8">出现乱码。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/07/31/%E7%AE%80%E5%8D%95%E7%9A%84XSS%E5%AF%BB%E6%89%BEflag/" data-id="cuidd61VfmZ2NClUhMKBPwKOA" data-title="简单的XSS寻找flag" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/08/06/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/" data-id="cuidEVU6fihVjwfWVmDUI1V1G" data-title="学习笔记4" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%EF%BC%8C%E5%AF%BB%E6%89%BEflag%E5%85%A5%E9%97%A8/" rel="tag">学习，寻找flag入门</a></li></ul>
-
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2026/08/06/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          学习笔记4
-        
-      </div>
-    </a>
   
-  
-    <a href="/2026/07/28/Hexo%E5%86%99%E6%96%B0%E6%96%87%E7%AB%A0-%E5%8F%91%E5%B8%83%E6%AD%A5%E9%AA%A4/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2026/07/31/%E7%AE%80%E5%8D%95%E7%9A%84XSS%E5%AF%BB%E6%89%BEflag/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hexo写新文章+发布步骤</div>
+      <div class="article-nav-title">简单的XSS寻找flag</div>
     </a>
   
 </nav>
