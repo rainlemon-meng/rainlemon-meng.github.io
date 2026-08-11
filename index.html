@@ -71,6 +71,45 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-学习笔记7" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/08/11/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B07/" class="article-date">
+  <time class="dt-published" datetime="2026-08-11T02:10:14.000Z" itemprop="datePublished">2026-08-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/08/11/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B07/">学习笔记7</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>零知识证明：<br>通俗来讲，零知识证明就是我让你相信我说的一句话或一个结论而不需要向你透露任何有关该结论的有用信息。<br>零知识证明有三大核心特性：<br>第一，完备性（Completeness）：<br>真的陈述，诚实执行必被接受（<code>∀x∈L, Pr[接受]=1</code>）。<br>第二，可靠性（Soundness）：<br>假的陈述，作弊成功概率 <code>≤ negl(λ)</code>，可忽略；更强地，若能骗过，则必存在抽取器 <code>E</code> 提取出 <code>w</code>——即知识可靠性（PoK）。<br>第三，零知识（Zero-Knowledge）：<br>验证者除”命题为真”外一无所获；严格地，存在模拟器 <code>S</code> 造出与真实交互不可区分的记录。<br>举个简单的例子：<br>Alice 手里藏着一个秘密数字：密码 &#x3D; 73<br>Bob 要确认：Alice 确实知道这个数字，但绝对不能让 Bob 得知数字是多少。<br>1.交互式零知识证明：<br>规则前置：<br>我们规定一道运算：<br>数字 x 经过固定公式计算后，结果永远等于 200<br>公式：x + 127 &#x3D; 200<br>只有 x&#x3D;73 能满足式子。<br>交互步骤<br>Alice 提前算出结果，私下准备好，不告诉 Bob 数字；<br>Bob 随机出题考验 Alice，两种指令随机选其一：<br>指令 A：你告诉我运算最终结果<br>指令 B：你把你的数字带入公式演算一遍<br>一轮过程：<br>假如 Bob 喊指令 A：Alice 回复最终得数 200<br>假如 Bob 喊指令 B：Alice 完整演算，结果依旧是 200<br>为什么骗不了人？<br>如果 Alice 根本不知道数字，只能瞎蒙：<br>每一轮猜对概率只有 1&#x2F;2<br>连续 20 轮全部答对，蒙混过关概率：≈百万分之一，基本可以认定没有作假。<br>最终效果<br>Bob 全程不知道数字是 73，但是百分百确定：Alice 拥有正确数字。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/08/11/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B07/" data-id="cuid1fIiBEGZF1erT25hwoqHa" data-title="学习笔记7" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-学习笔记6" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2026/08/08/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B06/" class="article-date">
@@ -436,6 +475,10 @@
       <ul>
         
           <li>
+            <a href="/2026/08/11/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B07/">学习笔记7</a>
+          </li>
+        
+          <li>
             <a href="/2026/08/08/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B06/">学习笔记6</a>
           </li>
         
@@ -449,10 +492,6 @@
         
           <li>
             <a href="/2026/07/31/%E7%AE%80%E5%8D%95%E7%9A%84XSS%E5%AF%BB%E6%89%BEflag/">简单的XSS寻找flag</a>
-          </li>
-        
-          <li>
-            <a href="/2026/07/28/Hexo%E5%86%99%E6%96%B0%E6%96%87%E7%AB%A0-%E5%8F%91%E5%B8%83%E6%AD%A5%E9%AA%A4/">Hexo写新文章+发布步骤</a>
           </li>
         
       </ul>
