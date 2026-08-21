@@ -71,6 +71,53 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-学习笔记11" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/08/21/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B011/" class="article-date">
+  <time class="dt-published" datetime="2026-08-21T09:40:37.000Z" itemprop="datePublished">2026-08-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/08/21/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B011/">学习笔记11</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>DNS劫持：<br>四种主要攻击方式：<br>1.终端本地劫持<br>修改操作系统 DNS 服务器地址，全部解析请求发送到攻击者 DNS 服务器；<br>修改<code>hosts</code>文件，hosts 优先级高于 DNS，直接写死域名指向恶意 IP，不走网络 DNS 查询。</p>
+<p>2.路由器 DNS 劫持</p>
+<p>攻击者利用路由器弱口令、路由器漏洞登录管理后台，修改路由器 WAN 口 DNS，填入恶意 DNS 服务器地址。<br>连接这个 Wi‑Fi 的所有手机、电脑全部中招。</p>
+<p>3.中间人劫持</p>
+<p>公共免费 WiFi 环境，攻击者做 ARP 欺骗，拦截内网 DNS 请求；不等合法 DNS 返回，抢先回复伪造 IP 报文。<br>不需要修改任何设备配置，只要连这个 WiFi 就中招。</p>
+<p>4.服务器端劫持<br>入侵运营商递归 DNS 服务器、域名权威服务器，直接修改解析记录，会影响成千上万用户，攻击门槛很高。</p>
+<p>典型受害现象：<br>1.浏览器地址栏域名完全正确，页面却是广告、赌博、钓鱼网站。<br>2.访问 HTTPS 网站弹出证书错误警告（假冒网站拿不到合法证书）。<br>3.QQ、微信可以登录，网页打不开；聊天软件内置 IP 库，不走 DNS 解析。<br>4.网页自动弹窗、强制跳转。</p>
+<p>风险危害：</p>
+<p>1.钓鱼网站窃取账号密码。<br>2.诱导下载木马病毒。<br>3.注入广告，篡改网页内容。<br>4.企业内网环境下，劫持业务域名造成内网系统被冒充。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/08/21/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B011/" data-id="cuidCedupsmcTNLdmhmOb9j9T" data-title="学习笔记11" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-学习笔记10" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2026/08/18/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B010/" class="article-date">
@@ -447,57 +494,6 @@
 
 
   
-    <article id="post-搭建博客1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/07/28/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A21/" class="article-date">
-  <time class="dt-published" datetime="2026-07-28T00:46:59.000Z" itemprop="datePublished">2026-07-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/07/28/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A21/">搭建属于自己的博客</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>一、前期环境准备</p>
-<ol>
-<li>安装必备软件<br>Git<br>下载：<a target="_blank" rel="noopener" href="https://git-scm.com/">https://git-scm.com/</a><br>安装后打开终端验证：<br>bash<br>运行<br>git –version<br>Node.js（Hexo 依赖）<br>官网下载 LTS 长期支持版：<a target="_blank" rel="noopener" href="https://nodejs.org/">https://nodejs.org/</a><br><img src="/1ee3a21b1e63d53fd476c666bd43c360.png" alt="alt text"><br>搭建 Hexo 静态博客场景）<br>保持全部默认勾选，直接点 Next 下一步！<br>验证安装：<br>bash<br>运行<br>node -v<br>npm -v<br>只要出现版本号，就代表 Node 安装没问题。</li>
-<li>注册账号<br>GitHub 账号：<a target="_blank" rel="noopener" href="https://github.com/">https://github.com</a><br>重点仓库命名规则：用户名.github.io（必须严格小写，用来开启 GitHub Pages）<br>二、Hexo 本地初始化博客（本地写作环境）</li>
-<li>全局安装 Hexo<br>打开 cmd<br><img src="/ed3ea9e2a94f1507afc4204dfea2b0ca.png" alt="alt text"><br>plaintext<br>added 54 packages in 1m<br>只要出现这一行，代表安装完成。<br>关于下面一堆 warn、notice<br>黄色 warn 警告<br>只是脚本权限提示，不影响 Hexo 正常使用，可以直接忽略。<br>bash<br>运行<br>npm install -g hexo-cli</li>
-<li>创建博客文件夹并初始化<br>bash<br>运行</li>
-</ol>
-<h1 id="创建文件夹"><a href="#创建文件夹" class="headerlink" title="创建文件夹"></a>创建文件夹</h1><p>hexo init myblog</p>
-<h1 id="进入目录"><a href="#进入目录" class="headerlink" title="进入目录"></a>进入目录</h1><p>cd myblog</p>
-<h1 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h1><p>npm install<br>此时目录结构简单说明：<br>plaintext<br>myblog&#x2F;<br>├── _config.yml      # 【最重要】全局配置文件<br>├── source&#x2F;          # 源文件目录<br>│   └── _posts&#x2F;      # 所有markdown文章放在这里<br>├── themes&#x2F;          # 博客主题文件夹<br>├── public&#x2F;          # hexo generate 生成静态文件（部署就是上传这个文件夹）<br>3. 本地启动预览<br>bash<br>运行<br>hexo s</p>
-<h1 id="全称-hexo-server"><a href="#全称-hexo-server" class="headerlink" title="全称 hexo server"></a>全称 hexo server</h1><p><img src="/image.png" alt="alt text"><br>按ctrl+c表示停止。<br>浏览器访问：<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a><br>此时你已经拥有本地可以访问的博客！</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/07/28/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A21/" data-id="cuid37qXVQB_68RVb9iFKo_io" data-title="搭建属于自己的博客" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%EF%BC%8CHexo/" rel="tag">学习，Hexo</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -548,6 +544,10 @@
       <ul>
         
           <li>
+            <a href="/2026/08/21/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B011/">学习笔记11</a>
+          </li>
+        
+          <li>
             <a href="/2026/08/18/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B010/">学习笔记10</a>
           </li>
         
@@ -561,10 +561,6 @@
         
           <li>
             <a href="/2026/08/11/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B07/">学习笔记7</a>
-          </li>
-        
-          <li>
-            <a href="/2026/08/08/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B06/">学习笔记6</a>
           </li>
         
       </ul>

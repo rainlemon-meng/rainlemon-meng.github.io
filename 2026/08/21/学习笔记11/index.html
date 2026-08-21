@@ -4,13 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>Archives: 2026 | Hexo</title>
+  <title>学习笔记11 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/2026/page/2/index.html">
+  <meta name="description" content="DNS劫持：四种主要攻击方式：1.终端本地劫持修改操作系统 DNS 服务器地址，全部解析请求发送到攻击者 DNS 服务器；修改hosts文件，hosts 优先级高于 DNS，直接写死域名指向恶意 IP，不走网络 DNS 查询。 2.路由器 DNS 劫持 攻击者利用路由器弱口令、路由器漏洞登录管理后台，修改路由器 WAN 口 DNS，填入恶意 DNS 服务器地址。连接这个 Wi‑Fi 的所有手机、电">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学习笔记11">
+<meta property="og:url" content="http://example.com/2026/08/21/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B011/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="DNS劫持：四种主要攻击方式：1.终端本地劫持修改操作系统 DNS 服务器地址，全部解析请求发送到攻击者 DNS 服务器；修改hosts文件，hosts 优先级高于 DNS，直接写死域名指向恶意 IP，不走网络 DNS 查询。 2.路由器 DNS 劫持 攻击者利用路由器弱口令、路由器漏洞登录管理后台，修改路由器 WAN 口 DNS，填入恶意 DNS 服务器地址。连接这个 Wi‑Fi 的所有手机、电">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-08-21T09:40:37.000Z">
+<meta property="article:modified_time" content="2026-08-21T09:45:28.354Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -69,64 +73,62 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2026" class="archive-year">2026</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2026/07/28/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A21/" class="archive-article-date">
-  <time class="dt-published" datetime="2026-07-28T00:46:59.000Z" itemprop="datePublished">Jul 28</time>
+        <section id="main"><article id="post-学习笔记11" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/08/21/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B011/" class="article-date">
+  <time class="dt-published" datetime="2026-08-21T09:40:37.000Z" itemprop="datePublished">2026-08-21</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2026/07/28/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A21/">搭建属于自己的博客</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      学习笔记11
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2026/07/27/hello-world/" class="archive-article-date">
-  <time class="dt-published" datetime="2026-07-27T12:50:20.580Z" itemprop="datePublished">Jul 27</time>
-</a>
+    <div class="e-content article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2026/07/27/hello-world/">Hello World</a>
-    </h1>
-  
+        <p>DNS劫持：<br>四种主要攻击方式：<br>1.终端本地劫持<br>修改操作系统 DNS 服务器地址，全部解析请求发送到攻击者 DNS 服务器；<br>修改<code>hosts</code>文件，hosts 优先级高于 DNS，直接写死域名指向恶意 IP，不走网络 DNS 查询。</p>
+<p>2.路由器 DNS 劫持</p>
+<p>攻击者利用路由器弱口令、路由器漏洞登录管理后台，修改路由器 WAN 口 DNS，填入恶意 DNS 服务器地址。<br>连接这个 Wi‑Fi 的所有手机、电脑全部中招。</p>
+<p>3.中间人劫持</p>
+<p>公共免费 WiFi 环境，攻击者做 ARP 欺骗，拦截内网 DNS 请求；不等合法 DNS 返回，抢先回复伪造 IP 报文。<br>不需要修改任何设备配置，只要连这个 WiFi 就中招。</p>
+<p>4.服务器端劫持<br>入侵运营商递归 DNS 服务器、域名权威服务器，直接修改解析记录，会影响成千上万用户，攻击门槛很高。</p>
+<p>典型受害现象：<br>1.浏览器地址栏域名完全正确，页面却是广告、赌博、钓鱼网站。<br>2.访问 HTTPS 网站弹出证书错误警告（假冒网站拿不到合法证书）。<br>3.QQ、微信可以登录，网页打不开；聊天软件内置 IP 库，不走 DNS 解析。<br>4.网页自动弹窗、强制跳转。</p>
+<p>风险危害：</p>
+<p>1.钓鱼网站窃取账号密码。<br>2.诱导下载木马病毒。<br>3.注入广告，篡改网页内容。<br>4.企业内网环境下，劫持业务域名造成内网系统被冒充。</p>
 
-    </header>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/08/21/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B011/" data-id="cuidCedupsmcTNLdmhmOb9j9T" data-title="学习笔记11" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
   </div>
-</article>
   
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/archives/2026/">&laquo; Prev</a><a class="page-number" href="/archives/2026/">1</a><span class="page-number current">2</span>
-  </nav>
+<nav id="article-nav">
+  
+  
+    <a href="/2026/08/18/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B010/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">学习笔记10</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
 
 </section>
         
