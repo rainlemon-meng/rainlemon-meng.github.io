@@ -71,6 +71,62 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-学习笔记13" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/08/25/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B013/" class="article-date">
+  <time class="dt-published" datetime="2026-08-25T02:15:51.000Z" itemprop="datePublished">2026-08-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/08/25/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B013/">学习笔记13</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>如何防御生日攻击</p>
+<p>生日攻击的核心：利用哈希碰撞，构造两份不同消息，哈希值相同。它攻击的是哈希函数的抗碰撞能力，不是解密密钥。</p>
+<p>1.使用抗碰撞安全的哈希算法</p>
+<p>生日攻击代价约 2的n&#x2F;2次幂，n 是哈希输出比特长度。</p>
+<ul>
+<li>SHA‑256：输出 256 位，生日攻击需要2的128次幂</li>
+<li>SHA‑3：海绵结构，抗碰撞性能更强<br>只增大密钥长度没用，必须增大哈希输出长度。</li>
+</ul>
+<p>2.区分两种安全属性<br>1.抗原像：给定哈希 h，很难找到消息 M 使 hash (M)&#x3D;h（找对应原文），复杂度2的n次幂<br>2.抗第二原像：给定消息M1，找另一个M2!&#x3D;M1，满足(hash(M1)&#x3D;hash(M2))<br>3.抗碰撞：找任意一对 (M1≠M2)，哈希相等，生日攻击就是针对这个，复杂度2的n&#x2F;2次幂)</p>
+<p>3.协议层面防护</p>
+<p>①加随机数</p>
+<p>不要直接 hash(消息)，改为 hash(消息 || 随机数)</p>
+<ul>
+<li>每次签名 &#x2F; 校验，附加一个不可预测的随机 nonce。</li>
+<li>攻击者预先算好的碰撞文档直接作废，因为每一次附带不一样随机值，预计算的碰撞失效。<br> 随机数不能固定写死，必须每次全新生成密码学随机数。</li>
+</ul>
+<p>② 加入时间戳</p>
+<p>hash(消息 || nonce || timestamp)<br>防止攻击者拿很久以前构造好的碰撞文档重放攻击。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/08/25/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B013/" data-id="cuidPHfu_xTGFbNZ4JCTuUogW" data-title="学习笔记13" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-学习笔记12" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2026/08/23/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B012/" class="article-date">
@@ -455,48 +511,6 @@
 
 
   
-    <article id="post-简单的XSS寻找flag" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/07/31/%E7%AE%80%E5%8D%95%E7%9A%84XSS%E5%AF%BB%E6%89%BEflag/" class="article-date">
-  <time class="dt-published" datetime="2026-07-31T03:14:02.000Z" itemprop="datePublished">2026-07-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/07/31/%E7%AE%80%E5%8D%95%E7%9A%84XSS%E5%AF%BB%E6%89%BEflag/">简单的XSS寻找flag</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><img src="/image-3.png" alt="alt text"><br><img src="/image-4.png" alt="alt text"><br>题目要求击杀 1000 只丧尸拿 flag，手动打几乎不可能。<br>这是前端网页游戏，分数逻辑写在前端 JS 代码里，属于前端篡改 &#x2F; XSS 相关思路，不需要真的射击。<br>寻找flag的方法：<br>1.先打开控制台，再访问游戏页面（最有效）<br>2.新建一个空白浏览器标签<br>3.按下 Ctrl+Shift+I 先把开发者工具调出来<br>4.在这个标签地址栏粘贴游戏链接访问<br><img src="/image-5.png" alt="alt text"><br>   页面里有一个文件 challenge.js，可以打开搜索 flag，部分题目 flag 直接写在这个文件内。<br>   <img src="/image-6.png" alt="alt text"><br>     含义：你可以在开发者工具控制台调用函数 getFlag(1000)</p>
-<p>右侧开发者工具切换到 控制台（Console）<br>直接输入下面代码，回车执行：<br>javascript<br>运行<br>getFlag(1000)<br>执行之后页面就会弹出 Flag。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/07/31/%E7%AE%80%E5%8D%95%E7%9A%84XSS%E5%AF%BB%E6%89%BEflag/" data-id="cuidd61VfmZ2NClUhMKBPwKOA" data-title="简单的XSS寻找flag" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%EF%BC%8C%E5%AF%BB%E6%89%BEflag%E5%85%A5%E9%97%A8/" rel="tag">学习，寻找flag入门</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -547,6 +561,10 @@
       <ul>
         
           <li>
+            <a href="/2026/08/25/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B013/">学习笔记13</a>
+          </li>
+        
+          <li>
             <a href="/2026/08/23/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B012/">学习笔记12</a>
           </li>
         
@@ -560,10 +578,6 @@
         
           <li>
             <a href="/2026/08/13/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B09/">学习笔记9</a>
-          </li>
-        
-          <li>
-            <a href="/2026/08/13/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B08/">学习笔记8</a>
           </li>
         
       </ul>
