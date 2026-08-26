@@ -71,6 +71,48 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-学习笔记14" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/08/26/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B014/" class="article-date">
+  <time class="dt-published" datetime="2026-08-26T08:01:05.000Z" itemprop="datePublished">2026-08-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/08/26/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B014/">学习笔记14</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>中间人攻击 MITM：</p>
+<p>原理：<br>攻击者秘密插入通信双方中间，转发、窃听、篡改双方数据，通信的 A 和 B 以为直接对话，完全不知道第三方存在。<br>例如：你写信给朋友，信先落到坏人手里。坏人拆开看内容，可以原封不动转发，也可以改掉信里内容再寄过去，你们两边都以为信件直接互相传递。</p>
+<p>完整流程：<br>1.A 想和 B 建立通信；<br>2.攻击者 C 劫持链路，A 实际和 C 对话，C 伪装成 A 跟 B 对话；<br>3.C 收到 A 的消息：可以窃听 &#x2F; 修改 &#x2F; 丢弃，再发给 B；<br>4.B 回复消息，同样经过 C 处理，再回传给 A；<br>5.A、B 都认为彼此在直接通信，不知道 C 存在。<br> 核心条件：攻击者要能访问两者之间的网络链路。</p>
+<p>危害：<br>1.窃听：拿到账号、cookie、聊天内容；<br>2.篡改：转账请求修改收款账户、篡改下载文件植入木马；<br>3.替换证书：伪造证书，解密 HTTPS 流量（证书欺骗）；<br>4.会话劫持：窃取会话 Cookie，直接登录你的账号。<br>但是：<br>MITM ≠ 窃听<br>MITM 不止听，还能改数据；单纯抓包只是窃听。<br>HTTPS 不是万能的：一旦你信任攻击者的伪造根证书，HTTPS 完全失效。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/08/26/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B014/" data-id="cuideyU73MCzLAF6g8rIqCfaj" data-title="学习笔记14" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-学习笔记13" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2026/08/25/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B013/" class="article-date">
@@ -459,58 +501,6 @@
 
 
   
-    <article id="post-学习笔记4" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/08/06/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/" class="article-date">
-  <time class="dt-published" datetime="2026-08-06T09:06:43.000Z" itemprop="datePublished">2026-08-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/08/06/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/">学习笔记4</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>一、基础网页骨架：<br>DOCTYPE html<br> 声明文档类型<br>html lang&#x3D;”zh‑CN”<br>html：lang&#x3D;”zh‑CN” 代表网页语言是中文 </p>
-<pre><code>&lt;head：网页头部，存放页面配置，内容不会显示在页面上 
-&lt;meta charset=&quot;UTF‑8&quot;&gt;
-&lt;!-- meta字符集：设置编码，防止中文乱码，必须写 --&gt;
-&lt;title&gt;我的第一个网页&lt;/title&gt;
-&lt;!-- title：浏览器标签页上面显示的标题 --&gt;
-</code></pre>
-<p>head<br>body<br>    body：网页主体，所有看得见的内容全部写在这里！！<br>    这里写页面内容</p>
-<p>二、常用标签分类：<br> 标题标签 h1 ~ h6<br>h1 最大，h6 最小，有语义，代表标题<br>三、网页里面要用字符，不能直接打空格：<br>空格：	nbsp;<br>小于： 	lt;<br>大于：	gt;</p>
-<p>各类元素：</p>
-<p>1、块级元素 block<br>特点：独占一行，可以设置宽高<br>代表：div h1~h6 p ul ol li header main footer</p>
-<p>2、行内元素 inline<br>特点：一行多个并排，不能设置宽高，大小跟随内容<br>代表：span a b em strong</p>
-<p>3、行内块 inline‑block<br>特点：一行多个并排，可以设置宽高<br>代表：img input textarea</p>
-<p>❌HTML 常见坑<br>忘记写 &lt;&#x2F;&gt;闭合标签，页面布局乱掉。<br>img 的 src 路径写错，图片不显示。<br>表单 input 不写 name，提交拿不到数据。<br>单选框 radio 的 name 不相同，结果可以同时多选。<br>中文页面忘记写<meta charset="UTF‑8">出现乱码。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/08/06/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/" data-id="cuidEVU6fihVjwfWVmDUI1V1G" data-title="学习笔记4" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -561,6 +551,10 @@
       <ul>
         
           <li>
+            <a href="/2026/08/26/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B014/">学习笔记14</a>
+          </li>
+        
+          <li>
             <a href="/2026/08/25/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B013/">学习笔记13</a>
           </li>
         
@@ -574,10 +568,6 @@
         
           <li>
             <a href="/2026/08/18/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B010/">学习笔记10</a>
-          </li>
-        
-          <li>
-            <a href="/2026/08/13/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B09/">学习笔记9</a>
           </li>
         
       </ul>
